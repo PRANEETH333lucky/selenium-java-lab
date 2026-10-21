@@ -2,21 +2,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple JavaScript Program</title>
+    <title>Mini Login System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eaf2ff;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            margin: auto;
+            width: 300px;
+            border-radius: 12px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <p id="output">0</p>
-    <button id="increment-button">Increment</button>
+    <div class="box">
+        <h2>Mini Login System</h2>
+        <input id="username" placeholder="Username"><br>
+        <input id="password" type="password" placeholder="Password"><br>
+        <button id="login" onclick="login()">Login</button>
+        <p id="message"></p>
+    </div>
 
     <script>
-        const output = document.getElementById("output");
-        const button = document.getElementById("increment-button");
-        let count = 0;
+        function login() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            let msg = document.getElementById("message");
 
-        button.addEventListener("click", function() {
-            count++;
-            output.innerHTML = count;
-        });
+            if (user === "admin" && pass === "1234") {
+                msg.innerText = "Login Successful!";
+                msg.style.color = "green";
+            } else {
+                msg.innerText = "Invalid Credentials!";
+                msg.style.color = "red";
+            }
+        }
     </script>
 </body>
 </html>
